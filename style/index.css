@@ -1,5 +1,27 @@
+body {
+  font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+}
+
 label {
   border: 1px solid black;
+  border-radius: 5px;
   cursor: pointer;
   padding: 10px;
+  transition: all 0.3s;
 }
+
+label:hover {
+  box-shadow: 0px 1px 5px #000;
+}
+
+.text-box {
+  padding: 10px;
+  border: 1px solid black;
+  border-radius: 5px;
+}
+
+/* .text-box p {
+} */

@@ -1,28 +1,10 @@
-const worker = new Worker("./dist/service-worker.js");
-
-const fetcher = async (body: FormData) =>
-  await fetch("/upload-endpoint", {
-    method: "POST",
-    body,
-  });
-
-const uploadChunk = async (chunk: Uint8Array, retries = 3) => {
-  const formData = new FormData();
-  const fileChunk = new Blob([chunk], { type: "application/octet-stream" });
-  formData.append("file", fileChunk);
-
-  try {
-    await fetcher(formData);
-  } catch (error) {
-    if (retries > 0) {
-      await uploadChunk(chunk, retries - 1);
-    } else {
-      console.error("Failed to upload chunk: ", error);
-    }
-  }
-};
-
 (async () => {
+  window.fileWorker = new Worker("./dist/service-worker.js");
+
+  const $testInput = document.querySelector<HTMLInputElement>("input#test");
+
+  // let chunks = 0;
+
   const registerServiceWorker = async () => {
     if ("serviceWorker" in navigator) {
       try {
@@ -47,7 +29,24 @@ const uploadChunk = async (chunk: Uint8Array, retries = 3) => {
 
   await registerServiceWorker();
 
-  worker.onmessage = e => {
+  window.fileWorker.onmessage = e => {
     console.log(e.data);
+    // chunks++;
+    // if (!$textBox) throw new Error("Error loading UI elements");
+    // const p = document.createElement("p");
+    // p.innerHTML = e.data;
+    // $textBox.appendChild(p);
   };
+
+  // if (!$chunks) throw new Error("Error loading UI elements");
+
+  // $chunks.innerHTML = chunks.toString();
+
+  $testInput?.addEventListener("input", e => {
+    const target = e.target as HTMLInputElement;
+    const value = target.value;
+    console.log("🚀 ~ value:", value);
+
+    // worker.postMessage(value);
+  });
 })();
