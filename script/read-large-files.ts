@@ -106,7 +106,10 @@ interface Chunk {
         const buffer = target.result as ArrayBuffer;
         const slice = new Uint8Array(buffer);
         // Process the buffer data here
-        window.fileWorker.postMessage(slice, [buffer]);
+        // window.fileWorker.postMessage(slice, [buffer]);
+
+        if (worker) worker.postMessage(slice, [buffer]);
+
         resolve(buffer); // Resolve promise with the buffer
       };
 
@@ -151,7 +154,11 @@ interface Chunk {
         $fileStatus.textContent = "Processing file...";
       }
 
+      console.time("file-process");
       await processFileInChunks(file, chunkSize);
+      console.timeEnd("file-process");
+
+      if (worker) worker.terminate();
 
       if ($fileStatus) {
         $fileStatus.textContent = "File processed successfully!";
