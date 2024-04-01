@@ -136,6 +136,17 @@ interface Chunk {
         $fileLabel.textContent = file.name || "Select large file";
       }
 
+      // * slower processing
+      // const reader = new FileReader();
+
+      // reader.onload = event => {
+      //   const target = event.target;
+      //   if ($output && target) $output.innerHTML = target.result as string;
+      // };
+
+      // reader.readAsText(file);
+
+      // * faster processing
       if ($fileStatus) {
         $fileStatus.textContent = "Processing file...";
       }
