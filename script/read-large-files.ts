@@ -108,7 +108,7 @@ interface Chunk {
         // Process the buffer data here
         // window.fileWorker.postMessage(slice, [buffer]);
 
-        if (worker) worker.postMessage(slice, [buffer]);
+        worker.postMessage(slice, [buffer]);
 
         resolve(buffer); // Resolve promise with the buffer
       };
@@ -131,7 +131,7 @@ interface Chunk {
   const handleFileInputChange = async (e: Event) => {
     try {
       const file = (e.target as HTMLInputElement).files?.[0];
-      const chunkSize = 1024 * 1024; // 1MB chunk size (adjust as needed)
+      const chunkSize = 1024 * 1024 * 15; // 15MB chunk size
 
       if (!file) return;
 
@@ -158,7 +158,7 @@ interface Chunk {
       await processFileInChunks(file, chunkSize);
       console.timeEnd("file-process");
 
-      if (worker) worker.terminate();
+      worker.terminate();
 
       if ($fileStatus) {
         $fileStatus.textContent = "File processed successfully!";
