@@ -1,28 +1,38 @@
 <!DOCTYPE html>
 <html lang="en">
-  <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Read large files with TypedArray & WebWorkers</title>
+	<head>
+		<meta charset="UTF-8" />
+		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+		<title>Read large files with TypedArray & WebWorkers</title>
 
-    <link rel="stylesheet" href="style/index.css" />
-  </head>
-  <body>
-    <h1>Welcome</h1>
+		<link rel="stylesheet" href="style/index.css" />
+	</head>
+	<body>
+		<h1>Welcome</h1>
 
-    <div>
-      <input type="text" name="" id="test" />
-    </div>
-    <div>
-      <label for="file-input">Select large file</label>
-      <input type="file" name="file" id="file-input" style="display: none" />
-    </div>
+		<div class="test-interactive">
+			<p>
+				<b>Hint:</b> Use this text input as UI interactivity test while the file
+				is being processed
+			</p>
+			<input
+				type="text"
+				name=""
+				id="test"
+				placeholder="type any text to test page interactivity"
+			/>
+		</div>
 
-    <div><h2 id="status">Ready</h2></div>
+		<div>
+			<label for="file-input">Select large file</label>
+			<input type="file" name="file" id="file-input" style="display: none" />
+		</div>
 
-    <div id="output"></div>
+		<div><h2 id="status">Ready</h2></div>
 
-    <script src="dist/index.js"></script>
-    <script src="dist/read-large-files.js"></script>
-  </body>
+		<div id="output"></div>
+
+		<script src="dist/index.js"></script>
+		<script src="dist/read-large-files.js"></script>
+	</body>
 </html>

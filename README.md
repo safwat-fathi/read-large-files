@@ -16,6 +16,21 @@ For example, but not limited to:
 
 [The worker](https://developer.mozilla.org/en-US/docs/Web/API/Web_Workers_API/Using_web_workers) thread can perform tasks without interfering with the user interface. Thanks for that 🙏
 
-## Testing
+
+## Running
+
+You can run the project using VSCODE live server only and in case you want to edit any of the TS files you can run the tsc watch script.
+
+### Install dependencies
+
+```bash
+npm install
+```
+
+```bash
+npm run start
+```
+
+## Testing 
 
 To test slower processing just comment out line 158 and uncomment from line 143 to 150
