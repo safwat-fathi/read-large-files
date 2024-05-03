@@ -1,11 +1,13 @@
 (() => {
-  onmessage = event => {
-    const textDecoder = new TextDecoder("utf-8");
+	postMessage("Hello from web worker");
 
-    const data = new Uint8Array(event.data);
+	onmessage = event => {
+		const textDecoder = new TextDecoder("utf-8");
 
-    const text = textDecoder.decode(data);
+		const data = new Uint8Array(event.data);
 
-    postMessage(text);
-  };
+		const text = textDecoder.decode(data);
+
+		postMessage(text);
+	};
 })();

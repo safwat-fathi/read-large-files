@@ -1,2 +1,3 @@
+fix: web worker not posting messages due to terminate
 update: README file
-add: new commit-message file to test git commit from a file 
+remove: event listener from text input & unused console logs

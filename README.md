@@ -33,4 +33,4 @@ npm run start
 ## Testing 
 
 - First you need to have a large file in your machine or you can download a large file from [this link](https://data.london.gov.uk/dataset/mps-stop-and-search-public-dashboard-data).
-- To test slower processing just comment out line 158 and uncomment from line 143 to 150.
+- To test slower processing just comment out line 89 and uncomment from line 67 to 81.
