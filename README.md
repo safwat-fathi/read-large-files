@@ -1,8 +1,6 @@
 # Process and read large files with JavaScript TypedArray & WebWorkers ✨
 
-Large file reading or processing in javascript can cause a lot of issues.
-
-For example, but not limited to:
+Large file reading or processing in javascript can cause a lot of issues, For example, but not limited to:
 
 - page crash
 - interactivity go wrong (UI freeze)
@@ -16,12 +14,13 @@ For example, but not limited to:
 
 [The worker](https://developer.mozilla.org/en-US/docs/Web/API/Web_Workers_API/Using_web_workers) thread can perform tasks without interfering with the user interface. Thanks for that 🙏
 
+## Running the project
 
-## Running
+- First clone the project.
+- You can run the project using VSCODE live server.
+- In case you want to edit any of the TS files you can run the tsc watch script.
 
-You can run the project using VSCODE live server only and in case you want to edit any of the TS files you can run the tsc watch script.
-
-### Install dependencies
+### Installing dependencies
 
 ```bash
 npm install
@@ -33,4 +32,5 @@ npm run start
 
 ## Testing 
 
-To test slower processing just comment out line 158 and uncomment from line 143 to 150
+- First you need to have a large file in your machine or you can download a large file from [this link](https://data.london.gov.uk/dataset/mps-stop-and-search-public-dashboard-data).
+- To test slower processing just comment out line 158 and uncomment from line 143 to 150.

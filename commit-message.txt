@@ -1,0 +1,2 @@
+update: README file
+add: new commit-message file to test git commit from a file 
